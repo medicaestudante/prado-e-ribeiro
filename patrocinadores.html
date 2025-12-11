@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Patrocinadores - DCPR Santa Casa SP</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+:root {
+  --color-primary: #003366;
+  --color-primary-dark: #002244;
+  --color-secondary: #0066cc;
+  --color-white: #ffffff;
+  --color-light: #f5f7fa;
+  --color-gray-700: #495057;
+  --color-gray-800: #343a40;
+  --color-dark: #1a1a2e;
+  --font-primary: "Merriweather", serif;
+  --font-secondary: "Inter", sans-serif;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-secondary);
+  color: var(--color-gray-800);
+  line-height: 1.6;
+  background: var(--color-light);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.header {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  color: var(--color-white);
+  padding: 60px 0 40px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header-title {
+  font-family: var(--font-primary);
+  font-size: 42px;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.header-subtitle {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 32px;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  gap: 12px;
+  color: var(--color-primary-dark);
+}
+
+.event-section {
+  background: var(--color-white);
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 51, 102, 0.1);
+}
+
+.event-title {
+  font-family: var(--font-primary);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.event-date {
+  color: var(--color-gray-700);
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* Removed emoji icons and diagonal shadows, using clean professional styling */
+.sponsor-card {
+  background: var(--color-white);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0, 51, 102, 0.15);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.sponsor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.sponsor-name {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+}
+
+.sponsor-category {
+  display: inline-block;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.sponsor-description {
+  color: var(--color-gray-700);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.contact-info {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 51, 102, 0.1);
+  font-size: 13px;
+  color: var(--color-gray-700);
+}
+
+.no-sponsors {
+  text-align: center;
+  padding: 40px;
+  color: var(--color-gray-700);
+  font-style: italic;
+}
+
+.cta-section {
+  text-align: center;
+  margin-top: 60px;
+  padding: 40px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 51, 102, 0.1);
+}
+
+.cta-title {
+  font-family: var(--font-primary);
+  font-size: 28px;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+.cta-text {
+  color: var(--color-gray-700);
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 14px 32px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.cta-button:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 32px;
+  }
+
+  .event-section {
+    padding: 24px 20px;
+  }
+
+  .sponsors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <h1 class="header-title">Nossos Patrocinadores</h1>
+      <p class="header-subtitle">Conheça as empresas e instituições que apoiam nossos eventos acadêmicos</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <a href="index.html" class="back-link">← Voltar para o site</a>
+
+    <div class="event-section">
+      <h2 class="event-title">Campanha de Arrecadação de Alimentos</h2>
+      <p class="event-date">15 de Março | Praça da Sé, São Paulo</p>
+      
+      <div class="sponsors-grid">
+        <div class="sponsor-card">
+          <h3 class="sponsor-name">Empresa Alimentícia XYZ</h3>
+          <span class="sponsor-category">Patrocinador Ouro</span>
+          <p class="sponsor-description">Fornecedora de alimentos não perecíveis e apoio logístico para distribuição.</p>
+          <div class="contact-info">
+            <p>Email: contato@empresaxyz.com.br</p>
+            <p>Telefone: (11) 3456-7890</p>
+          </div>
+        </div>
+
+        <div class="sponsor-card">
+          <h3 class="sponsor-name">Supermercado Bom Preço</h3>
+          <span class="sponsor-category">Patrocinador Prata</span>
+          <p class="sponsor-description">Doação de cestas básicas e apoio na arrecadação de alimentos.</p>
+          <div class="contact-info">
+            <p>Email: marketing@bompreco.com.br</p>
+            <p>Telefone: (11) 2345-6789</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-section">
+      <h2 class="event-title">Mutirão de Saúde</h2>
+      <p class="event-date">22 de Março | Santa Casa de São Paulo</p>
+      
+      <div class="sponsors-grid">
+        <div class="sponsor-card">
+          <h3 class="sponsor-name">Laboratório Med Solutions</h3>
+          <span class="sponsor-category">Patrocinador Ouro</span>
+          <p class="sponsor-description">Fornecimento de equipamentos médicos e materiais para exames laboratoriais.</p>
+          <div class="contact-info">
+            <p>Email: parceiros@medsolutions.com.br</p>
+            <p>Telefone: (11) 4567-8901</p>
+          </div>
+        </div>
+
+        <div class="sponsor-card">
+          <h3 class="sponsor-name">Farmácia Saúde Total</h3>
+          <span class="sponsor-category">Patrocinador Prata</span>
+          <p class="sponsor-description">Doação de medicamentos e produtos de higiene pessoal.</p>
+          <div class="contact-info">
+            <p>Email: social@saudetotal.com.br</p>
+            <p>Telefone: (11) 5678-9012</p>
+          </div>
+        </div>
+
+        <div class="sponsor-card">
+          <h3 class="sponsor-name">Clínica Bem Estar</h3>
+          <span class="sponsor-category">Patrocinador Bronze</span>
+          <p class="sponsor-description">Equipe médica voluntária e apoio na triagem de pacientes.</p>
+          <div class="contact-info">
+            <p>Email: voluntariado@clinicabemestar.com.br</p>
+            <p>Telefone: (11) 6789-0123</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-section">
+      <h2 class="event-title">Jantar Beneficente</h2>
+      <p class="event-date">5 de Abril | Salão Nobre Santa Casa</p>
+      
+      <div class="sponsors-grid">
+        <div class="sponsor-card">
+          <h3 class="sponsor-name">Restaurante Sabor & Arte</h3>
+          <span class="sponsor-category">Patrocinador Ouro</span>
+          <p class="sponsor-description">Responsável pelo buffet completo e serviço de alimentação do evento.</p>
+          <div class="contact-info">
+            <p>Email: eventos@saborearte.com.br</p>
+            <p>Telefone: (11) 7890-1234</p>
+          </div>
+        </div>
+
+        <div class="sponsor-card">
+          <h3 class="sponsor-name">Produtora Musical Harmony</h3>
+          <span class="sponsor-category">Patrocinador Prata</span>
+          <p class="sponsor-description">Organização da música ao vivo e entretenimento do jantar.</p>
+          <div class="contact-info">
+            <p>Email: shows@harmony.com.br</p>
+            <p>Telefone: (11) 8901-2345</p>
+          </div>
+        </div>
+
+        <div class="sponsor-card">
+          <h3 class="sponsor-name">Banco Futuro</h3>
+          <span class="sponsor-category">Patrocinador Bronze</span>
+          <p class="sponsor-description">Apoio financeiro e doação de brindes para o leilão beneficente.</p>
+          <div class="contact-info">
+            <p>Email: responsabilidade.social@bancofuturo.com.br</p>
+            <p>Telefone: (11) 9012-3456</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-section">
+      <h2 class="event-title">Mini Curso de Escrita Científica</h2>
+      <p class="event-date">Em Andamento | Campus Santa Casa</p>
+      
+      <div class="sponsors-grid">
+        <div class="sponsor-card">
+          <h3 class="sponsor-name">Editora Científica Brasil</h3>
+          <span class="sponsor-category">Patrocinador Ouro</span>
+          <p class="sponsor-description">Fornecimento de materiais didáticos e certificados para os participantes.</p>
+          <div class="contact-info">
+            <p>Email: academico@editorabrasil.com.br</p>
+            <p>Telefone: (11) 2345-6780</p>
+          </div>
+        </div>
+
+        <div class="sponsor-card">
+          <h3 class="sponsor-name">TechBio Solutions</h3>
+          <span class="sponsor-category">Patrocinador Prata</span>
+          <p class="sponsor-description">Plataforma digital para submissão e avaliação de trabalhos científicos.</p>
+          <div class="contact-info">
+            <p>Email: parcerias@techbio.com.br</p>
+            <p>Telefone: (11) 3456-7891</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-section">
+      <h2 class="event-title">Jornada Acadêmica de Biomedicina</h2>
+      <p class="event-date">Em Andamento | Campus Santa Casa</p>
+      
+      <div class="sponsors-grid">
+        <div class="sponsor-card">
+          <h3 class="sponsor-name">BioLab Instrumentos</h3>
+          <span class="sponsor-category">Patrocinador Ouro</span>
+          <p class="sponsor-description">Fornecimento de equipamentos laboratoriais e demonstrações técnicas.</p>
+          <div class="contact-info">
+            <p>Email: comercial@biolab.com.br</p>
+            <p>Telefone: (11) 4567-8902</p>
+          </div>
+        </div>
+
+        <div class="sponsor-card">
+          <h3 class="sponsor-name">Instituto de Pesquisa Avançada</h3>
+          <span class="sponsor-category">Patrocinador Ouro</span>
+          <p class="sponsor-description">Palestras com pesquisadores renomados e oportunidades de estágio.</p>
+          <div class="contact-info">
+            <p>Email: academico@ipa.org.br</p>
+            <p>Telefone: (11) 5678-9013</p>
+          </div>
+        </div>
+
+        <div class="sponsor-card">
+          <h3 class="sponsor-name">Indústria Farmacêutica Global</h3>
+          <span class="sponsor-category">Patrocinador Prata</span>
+          <p class="sponsor-description">Mentoria profissional e apresentação de cases de sucesso na indústria.</p>
+          <div class="contact-info">
+            <p>Email: rh@farmaglobal.com.br</p>
+            <p>Telefone: (11) 6789-0124</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <h2 class="cta-title">Seja um Patrocinador</h2>
+      <p class="cta-text">Sua empresa pode fazer parte dessa história de transformação!</p>
+      <a href="index.html#contato" class="cta-button">Entre em Contato</a>
+    </div>
+  </div>
+</body>
+</html>
