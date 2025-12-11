@@ -1,0 +1,2653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DCPR Santa Casa SP - Transformando Vidas</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+:root {
+  --color-primary: #003366;
+  --color-primary-dark: #002244;
+  --color-primary-light: #004488;
+  --color-secondary: #0066cc;
+  --color-accent: #6699cc;
+  --color-success: #2a9d8f;
+  --color-white: #ffffff;
+  --color-light: #f5f7fa;
+  --color-gray-100: #f1f3f5;
+  --color-gray-200: #e9ecef;
+  --color-gray-300: #dee2e6;
+  --color-gray-400: #ced4da;
+  --color-gray-500: #adb5bd;
+  --color-gray-600: #6c757d;
+  --color-gray-700: #495057;
+  --color-gray-800: #343a40;
+  --color-gray-900: #212529;
+  --color-dark: #1a1a2e;
+  --font-primary: "Geist", sans-serif;
+  --font-secondary: "Geist Mono", monospace;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-secondary);
+  color: var(--color-gray-800);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  background: var(--color-white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-white);
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  transition: var(--transition);
+  border-bottom: 3px solid var(--color-primary);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  gap: 32px;
+}
+
+.logo {
+  text-decoration: none;
+  margin-right: auto;
+  padding-left: 24px;
+}
+
+.logo-text {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.logo-image {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--color-primary);
+  background: #fff;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 51, 102, 0.3);
+  display: block;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--color-gray-700);
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+  font-family: var(--font-secondary);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+}
+
+.nav-link::after {
+  display: none;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+  background: rgba(0, 51, 102, 0.1);
+}
+
+.nav-link-active {
+  color: var(--color-white);
+  font-weight: 600;
+  background: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+  z-index: 0;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary-light);
+}
+
+.btn-success {
+  background: var(--color-success);
+  color: var(--color-white);
+}
+
+.btn-success:hover {
+  background: #229178;
+}
+
+.btn-large {
+  padding: 16px 40px;
+  font-size: 16px;
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+.btn-header {
+  white-space: nowrap;
+}
+
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.mobile-menu-btn span {
+  width: 100%;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.hero {
+  margin-top: 80px;
+ min-height: 100vh;
+max-height: none;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark) 0%,
+    var(--color-primary) 50%,
+    var(--color-secondary) 100%
+  );
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  filter: blur(2px);
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--color-white);
+  animation: fadeInDown 0.8s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-family: var(--font-primary);
+  font-size: 48px;
+  font-weight: 900;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  margin-bottom: 32px;
+  opacity: 0.95;
+  font-weight: 500;
+  font-family: var(--font-secondary);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  margin-top: 60px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-family: var(--font-primary);
+}
+
+.stat-label {
+  font-size: 14px;
+  opacity: 0.9;
+  font-family: var(--font-secondary);
+}
+
+.news-section {
+  background: var(--color-light);
+  padding: 40px 0;
+  border-bottom: 4px solid var(--color-primary);
+  margin-top: 80px;
+  position: relative;
+}
+
+.news-headline {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+}
+
+.news-headline:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.news-image {
+  width: 30%;
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.news-side-image {
+  width: 25%;
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+}
+
+.news-content {
+  flex: 1;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.news-label {
+  display: inline-block;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: var(--font-secondary);
+}
+
+.news-title {
+  font-family: var(--font-primary);
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+
+.news-excerpt {
+  color: var(--color-gray-700);
+  margin-bottom: 16px;
+  line-height: 1.6;
+  font-family: var(--font-secondary);
+}
+
+.news-meta {
+  display: flex;
+  gap: 24px;
+  font-size: 13px;
+  color: var(--color-gray-600);
+  margin-bottom: 16px;
+  font-family: var(--font-secondary);
+}
+
+.news-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  font-family: var(--font-secondary);
+}
+
+.news-link:hover {
+  gap: 12px;
+  color: var(--color-primary-dark);
+}
+
+.section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.section-light {
+  background: var(--color-light);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-family: var(--font-primary);
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--color-dark);
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+.section-description {
+  font-size: 18px;
+  color: var(--color-gray-600);
+  font-family: var(--font-secondary);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.about-card {
+  background: var(--color-white);
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.about-card-title {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--color-primary);
+}
+
+.about-card-text {
+  color: var(--color-gray-700);
+  line-height: 1.8;
+  font-family: var(--font-secondary);
+}
+
+.values-list {
+  list-style: none;
+  color: var(--color-gray-700);
+  font-family: var(--font-secondary);
+}
+
+.values-list li {
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+}
+
+.values-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.faculty-section {
+  margin-top: 80px;
+  background: var(--color-white);
+  padding: 60px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.subsection-title {
+  font-family: var(--font-primary);
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--color-primary-dark);
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.faculty-text-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faculty-intro {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--color-gray-700);
+  margin-bottom: 32px;
+  text-align: center;
+  font-family: var(--font-secondary);
+}
+
+.faculty-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.faculty-highlight {
+  text-align: center;
+}
+
+.faculty-highlight-title {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.faculty-highlight-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-gray-700);
+  font-family: var(--font-secondary);
+}
+
+.testimonials-section {
+  margin-top: 80px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--color-white);
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.testimonial-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.testimonial-text {
+  font-size: 15px;
+  color: var(--color-gray-700);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-style: italic;
+  font-family: var(--font-secondary);
+}
+
+.testimonial-author {
+  text-align: right;
+}
+
+.testimonial-name {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 4px;
+}
+
+.testimonial-course {
+  font-size: 13px;
+  color: var(--color-gray-600);
+  font-family: var(--font-secondary);
+}
+
+.carousel-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.carousel {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  flex: 1;
+  padding: 8px 0;
+  scrollbar-width: thin;
+  width: 100%;
+}
+
+.carousel.grid-mode {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  justify-content: center;
+  overflow-x: visible;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carousel.grid-mode ~ .carousel-btn,
+.carousel-btn.hidden {
+  display: none;
+}
+
+.carousel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carousel::-webkit-scrollbar-track {
+  background: var(--color-gray-200);
+  border-radius: 3px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 3px;
+}
+
+.project-card {
+  flex: 0 0 calc(33.333% - 16px);
+  background: #f8f9fa;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d1d5db;
+  box-shadow: var(--shadow-sm);
+}
+
+.project-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.carousel.grid-mode .project-card {
+  flex: 1 1 auto;
+  min-width: 320px;
+  max-width: 100%;
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.project-content {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  width: fit-content;
+  font-family: var(--font-secondary);
+}
+
+.project-badge-active {
+  background: rgba(42, 157, 143, 0.2);
+  color: var(--color-success);
+}
+
+.project-badge-planned {
+  background: rgba(102, 153, 204, 0.2);
+  color: var(--color-accent);
+}
+
+.project-title {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--color-dark);
+}
+
+.project-description {
+  color: var(--color-gray-700);
+  font-size: 14px;
+  margin-bottom: 12px;
+  flex: 1;
+  font-family: var(--font-secondary);
+}
+
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--color-gray-600);
+  font-family: var(--font-secondary);
+}
+
+.project-meta-item {
+  display: flex;
+  gap: 4px;
+}
+
+.carousel-btn {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-md);
+}
+
+.carousel-btn:hover {
+  background: var(--color-primary-dark);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-gray-300);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.carousel-dot.active {
+  background: var(--color-primary);
+  transform: scale(1.2);
+}
+
+.carousel.grid-mode ~ .carousel-dots {
+  display: none;
+}
+
+.events-list {
+  display: grid;
+  gap: 32px;
+}
+
+.event-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.event-card {
+  display: flex;
+  gap: 24px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.event-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.event-date {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: var(--color-white);
+  padding: 24px;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  font-family: var(--font-primary);
+}
+
+.event-day {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.event-month {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 4px;
+  font-family: var(--font-secondary);
+}
+
+.event-content {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-title {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-dark);
+}
+
+.event-description {
+  color: var(--color-gray-700);
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-family: var(--font-secondary);
+}
+
+.event-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--color-gray-600);
+  margin-bottom: 12px;
+  font-family: var(--font-secondary);
+  flex-wrap: wrap;
+}
+
+.sponsor-card {
+  background: var(--color-white);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.sponsor-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.sponsor-card-title {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+}
+
+.sponsor-card-text {
+  font-size: 14px;
+  color: var(--color-gray-700);
+  line-height: 1.6;
+  font-family: var(--font-secondary);
+}
+
+.sponsors-button-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.help-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.help-card {
+  background: var(--color-white);
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.help-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.help-title {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--color-primary);
+}
+
+.help-description {
+  color: var(--color-gray-700);
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: var(--font-secondary);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--color-dark);
+  font-size: 14px;
+  font-family: var(--font-secondary);
+}
+
+.form-input {
+  padding: 12px 16px;
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  font-family: var(--font-secondary);
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  font-family: var(--font-secondary);
+}
+
+.form-success {
+  display: none;
+  background: rgba(42, 157, 143, 0.1);
+  color: var(--color-success);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-success);
+  font-weight: 600;
+  animation: slideIn 0.3s ease;
+  font-family: var(--font-secondary);
+}
+
+.form-success.show {
+  display: block;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.transparency-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.transparency-stat {
+  background: var(--color-white);
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.transparency-stat:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.transparency-number {
+  font-family: var(--font-primary);
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.transparency-label {
+  font-size: 14px;
+  color: var(--color-gray-700);
+  font-weight: 600;
+  font-family: var(--font-secondary);
+}
+
+.reports-section {
+  margin-top: 60px;
+}
+
+.reports-title {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 24px;
+  color: var(--color-dark);
+}
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.report-card {
+  background: var(--color-white);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+  display: flex;
+  gap: 16px;
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.report-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.report-content {
+  flex: 1;
+}
+
+.report-title {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-dark);
+}
+
+.report-description {
+  font-size: 13px;
+  color: var(--color-gray-700);
+  margin-bottom: 12px;
+  font-family: var(--font-secondary);
+}
+
+.report-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  font-family: var(--font-secondary);
+}
+
+.report-link:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+.contact-container-simple {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background: var(--color-white);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-footer {
+  background-color: var(--color-dark);
+  color: var(--color-gray-300);
+  padding: 80px 0 40px;
+  font-family: var(--font-secondary);
+  border-top: 3px solid var(--color-primary);
+}
+
+.site-footer .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.site-footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.site-footer .footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.site-footer .footer-logo img {
+  max-width: 150px;
+  margin-bottom: 20px;
+  filter: none;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.site-footer .brand-description {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+.site-footer .social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.site-footer .social-icon {
+  color: var(--color-gray-300);
+  font-size: 22px;
+  transition: color 0.3s ease;
+}
+
+.site-footer .social-icon:hover {
+  color: var(--color-white);
+}
+
+.site-footer h4 {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 20px;
+}
+
+.site-footer nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.site-footer nav li {
+  margin-bottom: 10px;
+}
+
+.site-footer nav a {
+  color: var(--color-gray-300);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.site-footer nav a:hover {
+  color: var(--color-white);
+}
+
+.site-footer .footer-contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.site-footer .footer-contact li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.site-footer .footer-contact i {
+  color: var(--color-primary);
+  font-size: 16px;
+}
+
+.site-footer .footer-contact a {
+  color: var(--color-gray-300);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.site-footer .footer-contact a:hover {
+  color: var(--color-white);
+}
+
+.site-footer .footer-large-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-footer .footer-large-logo img {
+  max-width: 180px;
+  opacity: 1;
+  filter: none;
+}
+
+.site-footer .footer-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 40px 0;
+}
+
+.site-footer .footer-credits {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.site-footer .credits-text {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.site-footer .credits-text p {
+  margin-bottom: 5px;
+}
+
+.site-footer .institute-credit .fas.fa-heart {
+  color: var(--color-primary);
+  margin: 0 5px;
+}
+
+.site-footer .institute-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-footer .institute-link:hover {
+  text-decoration: underline;
+}
+
+.site-footer .credits-links {
+  display: flex;
+  gap: 15px;
+  font-size: 13px;
+}
+
+.site-footer .credits-links a {
+  color: var(--color-gray-300);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.site-footer .credits-links a:hover {
+  color: var(--color-white);
+}
+
+.site-footer .separator {
+  color: var(--color-gray-500);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  display: none;
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: var(--color-gray-600);
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  color: var(--color-dark);
+}
+
+.modal-title {
+  font-family: var(--font-primary);
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  color: var(--color-dark);
+}
+
+.modal-description {
+  color: var(--color-gray-600);
+  margin-bottom: 24px;
+  font-family: var(--font-secondary);
+}
+
+.donation-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--color-gray-200);
+}
+
+.donation-tab {
+  flex: 1;
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  color: var(--color-gray-600);
+  cursor: pointer;
+  transition: var(--transition);
+  border-bottom: 3px solid transparent;
+}
+
+.donation-tab:hover {
+  color: var(--color-primary);
+}
+
+.donation-tab.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.donation-content {
+  position: relative;
+}
+
+.donation-panel {
+  display: none;
+}
+
+.donation-panel.active {
+  display: block;
+}
+
+.donation-amounts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.amount-btn {
+  padding: 12px;
+  background: var(--color-gray-100);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  color: var(--color-gray-700);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.amount-btn:hover {
+  background: var(--color-gray-200);
+  border-color: var(--color-primary);
+}
+
+.amount-btn.selected {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.pix-info {
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--color-light);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.pix-key {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-primary);
+  padding: 12px;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  margin: 12px 0;
+}
+
+.bank-info {
+  padding: 20px;
+  background: var(--color-light);
+  border-radius: var(--radius-md);
+}
+
+.bank-details {
+  margin-top: 12px;
+  line-height: 1.8;
+  font-family: var(--font-secondary);
+}
+
+section {
+  scroll-margin-top: 120px;
+}
+
+/* Responsive adjustments for mobile - ensuring cards fit properly */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    background: var(--color-white);
+    flex-direction: column;
+    padding: 24px;
+    box-shadow: var(--shadow-lg);
+    transition: left 0.3s ease;
+  }
+
+  .nav.active {
+    left: 0;
+  }
+
+  .btn-header {
+    display: none;
+  }
+
+  .hero {
+    min-height: 70vh;
+    padding: 40px 0;
+  }
+
+  .hero-title {
+    font-size: 22px;
+    padding: 0 10px;
+    line-height: 1.3;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .hero-content {
+    padding: 0 10px;
+  }
+
+  .hero-stats {
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .stat-item {
+    padding: 12px;
+  }
+
+  .stat-number {
+    font-size: 24px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+
+  .news-headline {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .news-headline img {
+    width: 100% !important;
+    height: 200px !important;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
+  }
+
+  .news-headline div {
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg) !important;
+    border-left: 1px solid var(--color-gray-200) !important;
+    padding: 20px !important;
+  }
+
+  .news-image,
+  .news-side-image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-description {
+    font-size: 16px;
+  }
+
+  .faculty-section {
+    padding: 24px 16px;
+    margin-top: 40px;
+  }
+
+  .subsection-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .faculty-intro {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .faculty-highlights {
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .testimonials-section {
+    margin-top: 40px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .carousel-container {
+    gap: 8px;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+
+  .carousel {
+    gap: 16px;
+    padding: 4px 0;
+  }
+
+  .project-card {
+    flex: 0 0 calc(100% - 8px);
+    min-width: 280px;
+  }
+
+  .carousel-dots {
+    margin-top: 16px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .event-row {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .event-date {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    min-width: 100%;
+    padding: 16px;
+  }
+
+  .event-content {
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    padding: 16px;
+  }
+
+  .event-day {
+    font-size: 24px;
+  }
+
+  .sponsor-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .help-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .help-card {
+    padding: 24px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .about-card {
+    padding: 24px;
+  }
+
+  .transparency-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .reports-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .contact-form {
+    padding: 24px;
+  }
+
+  .form-group {
+    margin-bottom: 12px;
+  }
+
+  .form-input {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .site-footer {
+    padding: 60px 0 30px;
+  }
+
+  .site-footer .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .site-footer .footer-brand,
+  .site-footer .footer-links,
+  .site-footer .footer-contact {
+    align-items: center;
+  }
+
+  .site-footer .footer-logo img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .site-footer .social-links {
+    justify-content: center;
+  }
+
+  .site-footer .footer-large-logo {
+    display: none;
+  }
+
+  .site-footer .footer-divider {
+    margin: 20px 0;
+  }
+
+  .site-footer .footer-credits {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .site-footer .credits-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .site-footer .separator {
+    display: none;
+  }
+
+  .site-footer h4 {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .donation-amounts {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .amount-btn {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 24px;
+    max-width: 95%;
+  }
+
+  .donation-tabs {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .donation-tab {
+    padding: 10px 16px;
+    font-size: 12px;
+    flex: 1;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 50vh;
+    padding: 20px 0;
+  }
+
+  .hero-title {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .hero-buttons {
+    margin-bottom: 32px;
+    gap: 8px;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .btn-large {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .section-description {
+    font-size: 14px;
+  }
+
+  .hero-stats {
+    margin-top: 20px;
+    gap: 12px;
+  }
+
+  .stat-item {
+    padding: 10px;
+  }
+
+  .stat-number {
+    font-size: 20px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+
+  .news-headline div {
+    padding: 16px !important;
+  }
+
+  .news-headline h2 {
+    font-size: 20px !important;
+  }
+
+  .news-headline p {
+    font-size: 14px !important;
+  }
+
+  .subsection-title {
+    font-size: 20px;
+  }
+
+  .faculty-intro {
+    font-size: 14px;
+  }
+
+  .project-card {
+    flex: 0 0 100%;
+    min-width: auto;
+  }
+
+  .project-image {
+    height: 150px;
+  }
+
+  .project-content {
+    padding: 16px;
+  }
+
+  .project-title {
+    font-size: 16px;
+  }
+
+  .carousel {
+    gap: 12px;
+  }
+
+  .about-card {
+    padding: 16px;
+  }
+
+  .about-card-title {
+    font-size: 16px;
+  }
+
+  .help-card {
+    padding: 16px;
+  }
+
+  .help-title {
+    font-size: 16px;
+  }
+
+  .help-description {
+    font-size: 12px;
+  }
+
+  .testimonial-card {
+    padding: 16px;
+  }
+
+  .testimonial-text {
+    font-size: 13px;
+  }
+
+  .testimonial-name {
+    font-size: 14px;
+  }
+
+  .event-date {
+    padding: 12px;
+  }
+
+  .event-day {
+    font-size: 20px;
+  }
+
+  .event-month {
+    font-size: 12px;
+  }
+
+  .event-title {
+    font-size: 16px;
+  }
+
+  .contact-form {
+    padding: 16px;
+  }
+
+  .form-label {
+    font-size: 12px;
+  }
+
+  .transparency-number {
+    font-size: 28px;
+  }
+
+  .transparency-label {
+    font-size: 12px;
+  }
+
+  .report-title {
+    font-size: 14px;
+  }
+
+  .report-description {
+    font-size: 12px;
+  }
+
+  .site-footer .footer-grid {
+    gap: 20px;
+  }
+
+  .site-footer h4 {
+    font-size: 14px;
+  }
+
+  .site-footer nav a {
+    font-size: 12px;
+  }
+
+  .site-footer .footer-contact li {
+    font-size: 12px;
+  }
+
+  .site-footer .credits-text {
+    font-size: 11px;
+  }
+
+  .modal-content {
+    padding: 16px;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .donation-tab {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+
+  .pix-key {
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header-content">
+          <a href="#inicio" class="logo">
+            <img src="images/ong-logo.jpg" alt="DCPR Santa Casa SP Logo" class="logo-image">
+          </a>
+          <nav class="nav" id="nav">
+            <a class="nav-link nav-link-active" href="#inicio">Início</a>
+            <a class="nav-link" href="#sobre">Sobre Nós</a>
+            <a class="nav-link" href="#projetos">Projetos</a>
+            <a class="nav-link" href="#eventos">Eventos</a>
+            <a class="nav-link" href="#ajudar">Como Ajudar</a>
+            <a class="nav-link" href="#transparencia">Transparência</a>
+            <a class="nav-link" href="#contato">Contato</a>
+          </nav>
+          <button class="btn btn-primary btn-header" onclick="openDonationModal('card')">Patrocinar</button>
+          <button aria-label="Menu" class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero" id="inicio">
+      <video class="hero-video" autoplay muted loop playsinline>
+  <source src="images/dna-video.mp4" type="video/mp4">
+</video>
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Fomentando o Pensamento Científico na Formação Biomédica</h1>
+          <p class="hero-subtitle">Focado em ciência e saúde, o DCPR promove o conhecimento científico análogo aos pilares
+ensino, pesquisa e extensão contemplados na graduação da FCMSCSP</p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary btn-large" onclick="document.getElementById('contato').scrollIntoView({behavior: 'smooth'})">Entre em Contato</button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">6</div>
+              <div class="stat-label">Projetos Ativos</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">9</div>
+              <div class="stat-label">Patrocinadores de Eventos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" style="padding: 60px 0;">
+      <div class="container">
+        <div class="news-headline" style="max-width: 900px; margin: 0 auto;">
+          <img src="images/foto-notícia.jpg" alt="Notícia Destaque" style="width: 50%; height: auto; min-height: 300px; object-fit: cover; border-radius: var(--radius-lg) 0 0 var(--radius-lg);">
+          <div style="padding: 32px; background: white; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; border: 1px solid var(--color-gray-200); border-left: none;">
+            <span style="display: inline-block; background: var(--color-primary); color: white; padding: 6px 16px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; margin-bottom: 16px;">Destaque</span>
+            <h2 style="font-family: var(--font-primary); font-size: 32px; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 16px; line-height: 1.3;">Avanços em Pesquisa de Biomedicina Transformam Tratamentos</h2>
+            <p style="font-size: 18px; color: var(--color-gray-700); line-height: 1.6; margin-bottom: 24px;">Nossa instituição anuncia resultados significativos em estudos de biomedicina que prometem revolucionar o tratamento de doenças crônicas, trazendo esperança para milhares de pacientes.</p>
+            <div style="display: flex; gap: 24px; align-items: center; color: var(--color-gray-600); font-size: 14px; margin-bottom: 20px; flex-wrap: wrap;">
+              <span>📅 4 de novembro de 2025</span>
+              <span>✍ Equipe de Comunicação</span>
+            </div>
+            <button class="btn btn-primary" onclick="document.getElementById('contato').scrollIntoView({behavior: 'smooth'})">Saiba Mais →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="sobre">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Sobre Nós</h2>
+          <p class="section-description">Conheça a história e os valores que movem o Departamento Científico Prado e Ribeiro</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3 class="about-card-title">Nossa Missão</h3>
+            <p class="about-card-text">Promover a excelência em saúde, pesquisa e educação, transformando vidas através de cuidados humanizados e inovadores.</p>
+          </div>
+          <div class="about-card">
+            <h3 class="about-card-title">Nossos Valores</h3>
+            <ul class="values-list">
+              <li>Ética e Transparência</li>
+              <li>Excelência e Inovação</li>
+              <li>Compromisso Social</li>
+              <li>Respeito e Dignidade</li>
+              <li>Colaboração e Resiliência</li>
+            </ul>
+          </div>
+          <div class="about-card">
+            <h3 class="about-card-title">Nossa Visão</h3>
+            <p class="about-card-text">Ser referência nacional em saúde, pesquisa e ensino, reconhecida pela qualidade dos serviços e pelo impacto positivo na sociedade.</p>
+          </div>
+        </div>
+
+        <section id="faculdade" class="faculty-section">
+          <h3 class="subsection-title">Conheça Nossa Faculdade</h3>
+          <div style="margin-bottom: 40px; text-align: center;">
+            <img src="images/foto-notícia.jpg" alt="Faculdade de Ciências Médicas da Santa Casa de São Paulo" style="width: 100%; max-width: 900px; height: 500px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+          </div>
+          <div class="faculty-text-content">
+            <p class="faculty-intro">
+              A Faculdade de Ciências Médicas da Santa Casa de São Paulo é uma instituição de ensino
+superior comprometida com a excelência acadêmica e a formação de profissionais altamente
+qualificados na área da saúde. Com décadas de tradição e inovação, a instituição se destaca
+no cenário nacional pela qualidade do ensino, infraestrutura moderna e corpo docente
+experiente.
+            </p>
+            
+            <div class="faculty-highlights">
+              <div class="faculty-highlight">
+                <h4 class="faculty-highlight-title">Excelência Acadêmica</h4>
+                <p class="faculty-highlight-text">Reconhecida nacionalmente pela qualidade de seu ensino e pesquisa em Biomedicina, a
+instituição oferece programas acadêmicos rigorosos, atualizados e alinhados às demandas
+contemporâneas do mercado.</p>
+              </div>
+              
+              <div class="faculty-highlight">
+                <h4 class="faculty-highlight-title">Laboratórios Modernos</h4>
+                <p class="faculty-highlight-text">Conta com infraestrutura de ponta, equipada com tecnologias avançadas que permitem aos
+estudantes vivenciar práticas e pesquisas científicas desde o início do curso, estimulando a
+aprendizagem hands-on.</p>
+              </div>
+              
+              <div class="faculty-highlight">
+                <h4 class="faculty-highlight-title">Corpo Docente Qualificado</h4>
+                <p class="faculty-highlight-text">Formado por mestres e doutores com ampla experiência acadêmica e profissional. Os
+professores são comprometidos com a formação integral dos estudantes e com o
+desenvolvimento de pesquisas de alto impacto.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="testimonials-section">
+          <h3 class="subsection-title">Depoimentos dos Alunos</h3>
+          <img src="images/foto-depoimentos.jpg" alt="Equipe do alunos" style="width: 100%; max-width: 900px; height: 300px; object-fit: cover; border-radius: var(--radius-lg); margin-bottom: 40px; display: block; margin-left: auto; margin-right: auto;">
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <p class="testimonial-text">"Aproveitar todas as inúmeras oportunidades que a Santa Casa oferece está sendo
+essencial para minha formação acadêmica. Dentre elas, o Departamento Científico
+Prado e Ribeiro se destaca por ser um ambiente acolhedor, dedicado e inspirador para
+todos que estão lá tentando fazer a diferença.
+"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-course">Luiza Coelho — 2º ano</div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-text">"Fazer biomedicina na Santa Casa tem sido uma experiência incrível. A qualidade do
+curso e a experiência dos professores enriquecem o nosso aprendizado. Estudar na
+instituição é viver um ensino de excelência, com oportunidades de crescimento e
+vivência no ambiente hospitalar com projetos de extensão.
+"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-course">Raphaella Almeida — 2º ano</div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-text">"Cursar Biomedicina na Santa Casa é um privilégio surreal. Os laços que construímos
+dentro da instituição são maravilhosos, e a qualidade de ensino é de outro nível. O
+Departamento Científico, que foi organizado por alunos desde o início, desempenha um
+papel essencial, sempre deu suporte para os alunos e forneceu eventos maravilhosos,
+oferecendo suporte e oportunidades que enriquecem profundamente nossa formação.
+Tenho certeza de que em nenhum outro lugar eu viveria algo parecido. Sou
+eternamente grata ao curso de Biomedicina e a todos os meus colegas e professores.
+"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-course">Maria Isabela Michelão — 2º ano</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section" id="projetos">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Nossos Projetos</h2>
+          <p class="section-description">Iniciativas que transformam conhecimento em ação</p>
+        </div>
+        <div class="carousel-wrapper">
+          <div class="carousel-container">
+            <button aria-label="Anterior" class="carousel-btn" id="carouselPrev">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel" id="projectsCarousel">
+              <div class="project-card">
+                <img src="images/foto-minicurso.jpg" alt="Mini Curso de Escritura Científica" class="project-image">
+                <div class="project-content">
+                  <span class="project-badge project-badge-active">Em Andamento</span>
+                  <h3 class="project-title">Mini Curso de Escritura Científica</h3>
+                  <p class="project-description">Capacitação para estudantes desenvolverem habilidades de redação acadêmica e publicação científica.</p>
+                  <div class="project-meta">
+                    <div class="project-meta-item">
+                      <span>📅 Duração: 3 meses</span>
+                    </div>
+                    <div class="project-meta-item">
+                      <span>👥 30 participantes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-card">
+                <img src="images/foto-jornada.jpg" alt="Jornada Acadêmica de Biomedicina" class="project-image">
+                <div class="project-content">
+                  <span class="project-badge project-badge-active">Em Andamento</span>
+                  <h3 class="project-title">Jornada Acadêmica de Biomedicina</h3>
+                  <p class="project-description">Evento anual reunindo profissionais, pesquisadores e estudantes para discussões sobre tendências na biomedicina.</p>
+                  <div class="project-meta">
+                    <div class="project-meta-item">
+                      <span>📅 Anual</span>
+                    </div>
+                    <div class="project-meta-item">
+                      <span>👥 500+ participantes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <button aria-label="Próximo" class="carousel-btn" id="carouselNext">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="eventos">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Próximos Eventos</h2>
+          <p class="section-description">Participe das nossas iniciativas e faça parte da transformação</p>
+        </div>
+        <div class="events-list">
+          <div class="event-row">
+            <div class="event-card">
+              <div class="event-date">
+                <div class="event-day">15</div>
+                <div class="event-month">MAR</div>
+              </div>
+              <div class="event-content">
+                <h3 class="event-title">Acolhida Acadêmica de Biomedicina 2026</h3>
+                <p class="event-description">Destinado aos calouros e convidando veteranos, o DCPR organiza uma palestra que
+contempla métodos de estudo e suas nuances com a Profª Drª Gabriela Pintar.</p>
+                <div class="event-meta">
+                  <span><i class="fas fa-map-marker-alt"></i>Faculdade de Ciências Médicas da Santa Casa de São Paulo</span>
+                  <span><i class="fas fa-clock"></i>a definir</span>
+                </div>
+                <button class="btn btn-secondary btn-small">Inscreva-se</button>
+              </div>
+            </div>
+            <div class="sponsor-card">
+              <h4 class="sponsor-card-title">Gostaria de patrocinar esse evento?</h4>
+              <p class="sponsor-card-text">Sua empresa pode fazer a diferença apoiando esta iniciativa.</p>
+              <button class="btn btn-primary btn-small" onclick="openDonationModal('card')">Seja um Patrocinador</button>
+            </div>
+          </div>
+        </div>
+        <div class="events-list">
+          <div class="event-row">
+            <div class="event-card">
+              <div class="event-date">
+                <div class="event-day">15</div>
+                <div class="event-month">MAR</div>
+              </div>
+              <div class="event-content">
+                <h3 class="event-title">Ação Hemoterápica DCPR</h3>
+                <p class="event-description">Campanha destinada a doação de sangue no Hemocentro da Santa Casa de São Paulo. Sua
+doação é essencial para repor os estoques e possibilitar que vidas sejam salvas.</p>
+                <div class="event-meta">
+                  <span><i class="fas fa-map-marker-alt"></i>Hemocentro Santa Casa de São Paulo</span>
+                  <span><i class="fas fa-clock"></i>a definir</span>
+                </div>
+                <button class="btn btn-secondary btn-small">Inscreva-se</button>
+              </div>
+            </div>
+            <div class="sponsor-card">
+              <h4 class="sponsor-card-title">Gostaria de patrocinar esse evento?</h4>
+              <p class="sponsor-card-text">Sua empresa pode fazer a diferença apoiando esta iniciativa.</p>
+              <button class="btn btn-primary btn-small" onclick="openDonationModal('card')">Seja um Patrocinador</button>
+            </div>
+          </div>
+        </div>
+        <div class="sponsors-button-container">
+          <a href="patrocinadores.html" target="_blank" class="btn btn-primary btn-large">Patrocinadores do Evento</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ajudar">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Como Você Pode Ajudar</h2>
+          <p class="section-description">Sua contribuição faz a diferença em nossas ações</p>
+        </div>
+        <div class="help-grid">
+          <div class="help-card">
+            <h3 class="help-title">Patrocínio</h3>
+            <p class="help-description">Apoie nossos projetos e eventos com recursos financeiros. Cada contribuição nos permite alcançar mais pessoas.</p>
+            <button class="btn btn-primary" onclick="openDonationModal('card')">Patrocinar Agora</button>
+          </div>
+          <div class="help-card">
+            <h3 class="help-title">Doação de Bens</h3>
+            <p class="help-description">Materiais de higiene, alimentos e outros itens são essenciais para o bem-estar de quem assistimos.</p>
+            <button class="btn btn-success" onclick="document.getElementById('contato').scrollIntoView({behavior: 'smooth'})">Doar Bens</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="transparencia">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Transparência</h2>
+          <p class="section-description">Prestamos contas de nossas ações e finanças com clareza e responsabilidade</p>
+        </div>
+        <div class="transparency-stats">
+          <div class="transparency-stat">
+            <div class="transparency-number">99%</div>
+            <div class="transparency-label">recursos destinados a eventos.</div>
+          </div>
+          <div class="transparency-stat">
+            <div class="transparency-number">100%</div>
+            <div class="transparency-label"> Prestação de contas descritas e apresentadas à direção do curso.</div>
+          </div>
+          <div class="transparency-stat">
+            <div class="transparency-number">5 Estrelas</div>
+            <div class="transparency-label">Faculdade de Ciências Médicas da Santa Casa de São Paulo é avaliada com nota 5
+pelo Ministério da Educação.</div>
+          </div>
+        </div>
+
+        <div class="reports-section">
+          <h3 class="subsection-title">Relatórios e Documentos</h3>
+          <div class="reports-grid">
+              <div class="report-card">
+                <div class="report-content">
+                  <h4 class="report-title">Estatuto Social 2026 – 2027</h4>
+                  <p class="report-description">Documento que rege a organização e funcionamento da instituição</p>
+                  <a class="report-link" href="#">Baixar PDF</a>
+                </div>
+              </div>
+              <div class="report-card">
+                <div class="report-content">
+                  <h4 class="report-title">Atas de Reuniões Ordinárias 2026 – 2027</h4>
+                  <p class="report-description">Registro de deliberações e decisões das reuniões ordinárias</p>
+                  <a class="report-link" href="#">Abrir todas as atas</a>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Entre em Contato</h2>
+          <p class="section-description">Fale conosco para parcerias, dúvidas ou mais informações</p>
+        </div>
+        <div class="contact-container-simple">
+          <form class="form contact-form" id="contactForm">
+            <div class="form-group">
+              <label class="form-label" for="contactName">Nome:</label>
+              <input class="form-input" id="contactName" required="" type="text"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contactEmail">Email:</label>
+              <input class="form-input" id="contactEmail" required="" type="email"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contactPhone">Telefone:</label>
+              <input class="form-input" id="contactPhone" type="tel"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contactSubject">Assunto:</label>
+              <input class="form-input" id="contactSubject" required="" type="text"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contactMessage">Mensagem:</label>
+              <textarea class="form-input form-textarea" id="contactMessage" required="" rows="5"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Enviar Mensagem</button>
+            <div class="form-success" id="contactSuccess">
+              ✓ Mensagem enviada com sucesso! Responderemos em breve.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer" id="contato-footer">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <img src="images/ong-logo.jpg" alt="Logo DCPR Santa Casa SP">
+            </div>
+            <p class="brand-description">
+              Transformando vidas através da inovação em biomedicina, pesquisa científica e educação de excelência.
+            </p>
+            
+            <div class="social-links">
+              <a href="https://www.instagram.com/dcpr.santacasasp?igsh=MXhhejNyb2kyZTNidQ==" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://linkedin.com/company/dcprsantacasa" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h4>Navegação</h4>
+            <nav>
+              <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#ajudar">Como Apoiar</a></li>
+                <li><a href="#contato">Contato</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="footer-contact">
+            <h4>Fale Conosco</h4>
+            <ul>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:presidenciadcpr@gmail.com">presidenciadcpr@gmail.com</a>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>(11) 97502-2399</span>
+              </li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>São Paulo,SP</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-large-logo">
+            <img src="images/logo-footer.png" alt="Logo DCPR">
+          </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-credits">
+          <div class="credits-text">
+            <p>&copy; 2025 Departamento Científico Prado e Ribeiro. Todos os direitos reservados.</p>
+            <p class="institute-credit">
+              Desenvolvido com <i class="fas fa-heart"></i> pelo
+              <a href="https://www.instagram.com/code4causes/" target="_blank" rel="noopener noreferrer" class="institute-link">Instituto Code for Causes</a>
+            </p>
+          </div>
+          <div class="credits-links">
+            <a href="#">Política de Privacidade</a>
+            <span class="separator">|</span>
+            <a href="#">Termos de Uso</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal" id="donationModal">
+      <div class="modal-overlay" onclick="closeDonationModal()"></div>
+      <div class="modal-content">
+        <button aria-label="Fechar" class="modal-close" onclick="closeDonationModal()">×</button>
+        <h2 class="modal-title">Seja um patrocinador!</h2>
+        <p class="modal-description">Sua contribuição fortalece nossos projetos e eventos acadêmicos em biomedicina</p>
+
+        <div class="donation-tabs">
+          <button class="donation-tab active" data-tab="pix" onclick="switchDonationTab('pix')">PIX</button>
+          <button class="donation-tab" data-tab="boleto" onclick="switchDonationTab('boleto')">Transferência Bancária</button>
+          <button class="donation-tab" data-tab="card" onclick="switchDonationTab('card')">Contato Direto</button>
+        </div>
+
+        <div class="donation-content">
+          <div class="donation-panel active" id="pix-panel">
+            <h3 style="margin-bottom: 1rem; color: #003366;">Patrocínio via PIX</h3>
+            <p style="margin-bottom: 1.5rem;">A forma mais rápida e prática de apoiar nossos projetos acadêmicos.</p>
+            <div class="donation-amounts">
+              <button class="amount-btn" onclick="selectAmount(100)">R$ 100</button>
+              <button class="amount-btn" onclick="selectAmount(500)">R$ 500</button>
+              <button class="amount-btn" onclick="selectAmount(1000)">R$ 1.000</button>
+              <button class="amount-btn" onclick="selectAmount(5000)">R$ 5.000</button>
+            </div>
+            <input type="hidden" id="customAmount" value="100"/>
+            <div class="pix-info">
+              <p><strong>Chave PIX (CNPJ):</strong></p>
+              <div class="pix-key">00.000.000/0001-00</div>
+              <button class="btn btn-secondary btn-small" onclick="copyPixKey()">Copiar Chave PIX</button>
+              <p class="mt-4" style="font-size: 0.9rem; color: #666; margin-top: 1rem;">Após realizar o pagamento, envie o comprovante para nosso e-mail para receber certificado de patrocinador.</p>
+            </div>
+          </div>
+
+          <div class="donation-panel" id="boleto-panel">
+            <h3 style="margin-bottom: 1rem; color: #003366;">Transferência Bancária</h3>
+            <p style="margin-bottom: 1.5rem;">Para patrocínios de maior valor, utilize transferência bancária:</p>
+            <div class="bank-info">
+              <div class="bank-details">
+                <p><strong>Favorecido:</strong> DCPR Santa Casa SP</p>
+                <p><strong>CNPJ:</strong> 00.000.000/0001-00</p>
+                <p><strong>Banco:</strong> Banco do Brasil</p>
+                <p><strong>Agência:</strong> 1234-5</p>
+                <p><strong>Conta Corrente:</strong> 67890-1</p>
+              </div>
+              <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #666;">Envie o comprovante para <strong>patrocinio@dcprsantacasa.org.br</strong> informando qual projeto ou evento deseja apoiar.</p>
+            </div>
+          </div>
+
+          <div class="donation-panel" id="card-panel">
+            <h3 style="margin-bottom: 1rem; color: #003366;">Contato para Patrocínio</h3>
+            <p style="margin-bottom: 1rem;">Preencha o formulário abaixo para abrir seu cliente de e-mail pré-preenchido.</p>
+
+            <form id="sponsorEmailForm" onsubmit="event.preventDefault(); sendSponsorshipEmail();">
+              <div style="display:flex; gap:0.75rem; margin-bottom:0.75rem;">
+                <input id="sponsorName" type="text" placeholder="Seu nome / Empresa" required style="flex:1; padding:0.75rem; border-radius:6px; border:1px solid #ddd;">
+                <input id="sponsorEmail" type="email" placeholder="Seu e-mail" required style="flex:1; padding:0.75rem; border-radius:6px; border:1px solid #ddd;">
+              </div>
+              <input id="sponsorSubject" type="text" value="Interesse em patrocínio - DCPR" style="width:100%; padding:0.75rem; border-radius:6px; border:1px solid #ddd; margin-bottom:0.75rem;">
+              <textarea id="sponsorMessage" placeholder="Escreva uma mensagem breve sobre o tipo de patrocínio desejado (valor aproximado, projeto/evento, contrapartidas)." rows="5" style="width:100%; padding:0.75rem; border-radius:6px; border:1px solid #ddd; margin-bottom:0.75rem;"></textarea>
+
+              <div style="display:flex; gap:0.5rem;">
+                <button type="button" class="btn btn-secondary" onclick="closeDonationModal()" style="flex:1;">Cancelar</button>
+                <button type="submit" class="btn btn-primary" style="flex:1;">Enviar E-mail</button>
+              </div>
+            </form>
+
+            <div style="margin-top:1rem; font-size:0.9rem; color:#666;">
+              Ou, envie diretamente para <strong>patrocinio@dcprsantacasa.org.br</strong>
+            </div>
+
+            <h4 style="margin-top:1.25rem; margin-bottom: 0.75rem; color: #003366;">Benefícios para Patrocinadores:</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Certificado de patrocinador oficial</li>
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Logo em materiais de divulgação</li>
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ Menção nas redes sociais</li>
+              <li style="padding: 0.5rem 0;">✓ Relatório de impacto do patrocínio</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
